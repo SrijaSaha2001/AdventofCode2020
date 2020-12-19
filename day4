@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+
+class day4part1
+{
+    public static void main()throws IOException
+    {
+        int ctr=0;
+        int valid=0;
+        int l=0;
+        File file=new File("C:\\Users\\oav30\\Desktop\\day4.txt");
+        Scanner sc=new Scanner(file);
+        while(sc.hasNextLine())
+        {
+           String s=sc.nextLine();
+           
+           String[] str=s.split("\\t|:");
+          
+           if(s.equals("\n"))
+           {   
+               if(ctr==7)
+               {
+                   valid++;
+                }
+                ctr=0;
+            }
+            else
+            {
+                int a=str.length;
+                l++;
+                for(int i=0;i<a;i++)
+                {
+                    if((str[i].equals("byr"))||(str[i].equals("iyr"))||(str[i].equals("eyr"))||(str[i].equals("hgt"))||(str[i].equals("hcl"))||(str[i].equals("ecl"))||(str[i].equals("pid")))
+                    {
+                        ctr++;
+                    }
+                }
+            }
+        }
+        System.out.println(valid);
+    }
+   
+}
+                
